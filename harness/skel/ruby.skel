@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+INPUT = "@@@INPUT@@@"
+
+# Returns the input as an array of lines
+def parse_as_lines path
+  lines = []
+  File.open(path, 'rb').each { |line| lines << line.chomp }
+  lines
+end
+
+# Returns the input as an array or arrays of whitespace tokenized lines
+def parse_as_tokens path
+  lines = []
+  File.open(path, 'rb').each { |line| lines << line.chomp.split }
+  lines
+end
+
+# Returns the input as an array with each line the results of lambda.call(line)
+def parse_as_custom path, &func
+  data = []
+  File.open(path, 'rb').each { |line| data << func.call(line) }
+  data
+end
+
+
+def part1
+  # lines = parse_as_lines INPUT
+  # tokens = parse_as_tokens INPUT
+  # custom = parse_as_tokens(INPUT) { |line| line.size }
+end
+
+
+def part2
+  # lines = parse_as_lines INPUT
+  # tokens = parse_as_tokens INPUT
+  # custom = parse_as_tokens(INPUT) { |line| line.size }
+end
+
+
+part1
+part2
