@@ -4,6 +4,14 @@ module AOC
   SESSION_PATH = "${HOME}/.aoc"
 
   def AOC.get_session
+    unless File.exists?(SESSION_PATH)
+      $stderr.puts
+      $stderr.puts "Missing session information"
+      $stderr.puts "Please place your AoC session data in ${HOME}/.aoc"
+      $stderr.puts "Google 'how to get AoC session cookie' for details"
+      $stderr.puts
+      exit 1
+    end
     `cat #{SESSION_PATH}`.chomp
   end
 
