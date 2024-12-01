@@ -27,14 +27,14 @@ end
 def part1
   # lines = parse_as_lines INPUT
   # tokens = parse_as_tokens INPUT
-  # custom = parse_as_tokens(INPUT) { |line| line.size }
+  # custom = parse_as_custom(INPUT) { |line| line.size }
 end
 
 
 def part2
   # lines = parse_as_lines INPUT
   # tokens = parse_as_tokens INPUT
-  # custom = parse_as_tokens(INPUT) { |line| line.size }
+  # custom = parse_as_custom(INPUT) { |line| line.size }
 end
 
 

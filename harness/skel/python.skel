@@ -29,14 +29,14 @@ def parse_as_custom(path, func):
 def part1():
   # lines = parse_as_lines(INPUT)
   # tokens = parse_as_tokens(INPUT)
-  # custom = parse_as_tokens(INPUT, lambda x: len(x))
+  # custom = parse_as_custom(INPUT, lambda x: len(x))
   pass
 
 
 def part2():
   # lines = parse_as_lines(INPUT)
   # tokens = parse_as_tokens(INPUT)
-  # custom = parse_as_tokens(INPUT, lambda x: len(x))
+  # custom = parse_as_custom(INPUT, lambda x: len(x))
   pass
 
 
