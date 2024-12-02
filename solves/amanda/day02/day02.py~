@@ -1,0 +1,38 @@
+"""
+Advent of Code 2024 day 2
+
+"""
+
+f = open('day02example.txt', 'r')
+# f = open('day02input', 'r')
+# make each line of input element in list
+lines = f.readlines()
+list_in = []
+for line in lines:
+    list_in.append(line)
+print(list_in)
+
+levels = []
+for ele in list_in:    #levels is list of lists
+    level = [int(x) for x in ele.split()]
+    levels.append(level)
+print(levels)
+
+for level in levels:
+    flag = 0
+    for i in range(len(level)-1):
+        #levels = []
+        if( (level[i] - fg
+             level[i+1]) > 0):
+            flag = 2
+            print("descending")
+        elif ( (level[i] - level[i+1]) < 0):
+            flag = 1
+            print("ascending")
+        else:
+            print("same number")
+
+
+print()
+print()
+#print(answer)
