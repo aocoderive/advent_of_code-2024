@@ -21,58 +21,36 @@ print(levels)
 
 answer = 0
 for level in levels:
-    flag = 0
-    counter = 0
-    badcheck = 0
+    print(level)
     for j in range(len(level)-1):
         #generate a new list with all but i
+        print("            starting with ", j)
         newlist = []
         newlist = copy.copy(level)
-        newlist.remove(level[j])
-       
-        a = level[j] - level[j+1]
-        if(a >= 1) and (a <= 3) and ( (flag == 0) or (flag == 2) ):
-            flag = 2
-            counter += 1
-            print("descending")
-        elif (a <= -1) and (a >= -3) and ( (flag == 0) or (flag == 1) ):
-            flag = 1
-            counter += 1
-            print("ascending")
+        newlist.remove(level[j])        
+        print(newlist)
+
+        #now complete the algorithm
+        flag = 0
+        counter = 0
+        for i in range(len(newlist)-1):
+            a = level[i] - level[i+1]
+            if(a >= 1) and (a <= 3) and ( (flag == 0) or (flag == 2) ):
+                flag = 2
+                counter += 1
+                print("descending")
+            elif (a <= -1) and (a >= -3) and ( (flag == 0) or (flag == 1) ):
+                flag = 1
+                counter += 1
+                print("ascending")
+            else:
+                print("same number")
+        ad = (counter == len(newlist)-1)
+        if (ad):
+            answer += 1
+            print("                       ans", answer)
         else:
-            for k in range(len(level)-1):
-                #generate a new list with all but i
-                newlist = []
-                newlist = copy.copy(level)
-                newlist.remove(level[k])
-
-                print(newlist)
-                flag2 = 0
-                counter2 = 0
-                for i in range(len(newlist)-1):
-                    b = level[i] - level[i+1]
-                    if(b >= 1) and (b <= 3) and ( (flag2 == 0) or (flag2 == 2) ):
-                        flag2 = 2
-                        counter2 += 1
-                        print("small dec")
-                    elif (b <= -1) and (b >= -3) and ( (flag2 == 0) or (flag2 == 1) ):
-                        flag2 = 1
-                        counter2 += 1
-                        print("small ascending")
-                    
-                newacedec = (counter2 >= len(newlist)-1)
-                if (newacedec):
-                    answer += 1
-                    print("ans", answer)
-                    print()
-                break
-
-    acedec = counter == len(level)-1
-    if (acedec):
-        answer += 1
-        print("ans", answer)
-    print()
-    
+            continue
 
 
 
