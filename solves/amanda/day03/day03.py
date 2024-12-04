@@ -23,8 +23,11 @@ for line in list_in:
     for i, char in enumerate(line):
         print("target[index",target[index], " char", char," index", index," i",i, " line[i]", line[i]) 
         if index != (4 or 5 or 6 or 8 or 9 or 10):
-            if char == target[index]: #if it's a good char
+            if char == target[index] and (char != ',') : #if it's a good char
                 index += 1
+                continue
+            else:
+                index = 0
                 continue
         elif index == 4:
             if char.isnumeric(): #check if 2 or 3 digit number
@@ -32,16 +35,13 @@ for line in list_in:
                     if line[i+2].isnumeric(): #three digit number
                         if line[i+3] ==',':
                             index = 8
-                            i = 8
                             twonums.append( int(char+line[i+1]+line[i+2]) )
                             print(twonums)
                         else:
                             index = 0
-                            i = 8
                             continue
                     elif line[i+2] == ',':    #good two digit number
                         index = 8
-                        i= 8
                         twonums.append( int(char+line[i+1]) )
                         print(twonums)
                     else:
@@ -49,7 +49,6 @@ for line in list_in:
                         continue
                 elif line[i+1] == ',':        #good one digit number
                     index = 8
-                    i = 8
                     twonums.append( int(char) )
                     print(twonums)
                     continue
