@@ -1,18 +1,17 @@
 
 module AOC
 
-  SESSION_PATH = "${HOME}/.aoc"
-
   def AOC.get_session
-    unless File.exists?(SESSION_PATH)
+    spath = "%s/.aoc" % [ENV['HOME']]
+    unless File.exists?(spath)
       $stderr.puts
       $stderr.puts "Missing session information"
-      $stderr.puts "Please place your AoC session data in ${HOME}/.aoc"
+      $stderr.puts "Please place your AoC session data in #{spath}"
       $stderr.puts "Google 'how to get AoC session cookie' for details"
       $stderr.puts
       exit 1
     end
-    `cat #{SESSION_PATH}`.chomp
+    `cat #{spath}`.chomp
   end
 
   def AOC.get_input_dir year, day
@@ -82,7 +81,7 @@ module AOC
   def AOC.make_sol year, day, lang
     AOC.lang_check lang
     skel_dir = File.realpath(File.dirname(__FILE__)) + '/../skel'
-    input = AOC.get_file_path year, day, 'input'
+    input = 'input'
     sol = case lang
            when :ruby then AOC.get_file_path(year, day, 'sol.rb')
            when :python then AOC.get_file_path(year, day, 'sol.py')
