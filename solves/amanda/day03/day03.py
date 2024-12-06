@@ -24,6 +24,7 @@ for line in list_in:
     while i < len(line):
         for char in line:
             print("target",target[index], " char", char," index", index," i",i, " line[i]", line[i])
+            print(products)
 #            print(" i+1", line[i+1], " i+2", line[i+2])
             if (index != 4) and (index != 8):
                 if index == 8:
@@ -79,32 +80,45 @@ for line in list_in:
                             if line[i+3] ==')':
                                 index = 11
                                 twonums.append( int(char+line[i+1]+line[i+2]) )
+                                products.append(twonums[0]*twonums[1])
+                                twonums = []
                                 print(twonums)
-                                i += 2
+                                i += 2                                
                             else:
                                 index = 0
                                 i += 1
+                                twonums = []
                                 continue
                         elif line[i+2] == ')':    #good two digit number
                             index = 11
                             print(char, line[i+1])
                             twonums.append( int(char+line[i+1]) )
+                            products.append(twonums[0]*twonums[1])
+                            twonums = []
                             print(twonums)
                             i += 1
                         else:
+                            twonums = []
                             index = 0
                             i += 1
                             continue
                     elif line[i+1] == ')':        #good one digit number
                         index = 11
                         twonums.append( int(char) )
+                        products.append(twonums[0]*twonums[1])
+                        twonums = []
                         print(twonums)
                         i += 1
                         continue
+                    else:
+                        twonums = []
+                        index = 0
+                        i += 1
                 else:
                     print("char", char, "is not numeric")
                     i += 1
                     index = 0
+                    twonums = []
                     continue
             
 
