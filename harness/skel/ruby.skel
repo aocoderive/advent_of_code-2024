@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'set'
+
 INPUT = "@@@INPUT@@@"
 
 # Returns the input as an array of lines
