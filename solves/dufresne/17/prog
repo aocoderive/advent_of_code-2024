@@ -1,0 +1,17 @@
+Register A: 18427963
+Register B: 0
+Register C: 0
+
+Program: 2,4,1,1,7,5,0,3,4,3,1,6,5,5,3,0
+
+ 0: 2,4 =>  B = A % 8       # B = Lower 3 bits of A
+ 2: 1,1 =>  B = B ^ 1       # XOR with 0b001 (invert lowest bit of B)
+ 4: 7,5 =>  C = A / 2**B    # C = A / [1..128], B can only be in [0..128]
+ 6: 0,3 =>  A = A / 2**3    # A = A / 8 (right shift A by 3)
+ 8: 4,3 =>  B = B ^ C       # XOR with line 4 output
+10: 1,6 =>  B = B ^ 6       # XOR with 0b110 (invert two high order bits of B)
+12: 5,5 =>  print(B % 8)    # An output digit - in base 8 due to above operations
+14: 3,0 =>  goto 0          # loop
+
+Essentially, this program is using the base values of the input to compute
+the outputs via some masking and shifting. 
